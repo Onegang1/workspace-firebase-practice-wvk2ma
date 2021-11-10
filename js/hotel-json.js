@@ -10,17 +10,18 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-/* object examples 
+/* object examples */ 
 var testJson = {};
 testJson["lastname"] = "zhang";
 testJson["location"] = "aiken";
 console.log(testJson);
-*/
+
 
 // enter data in
 $("input[type='button']").click(function(e) {
   //get the value of form
-  
+  const inputdata = $("form").serializeArray();
+  console.log(inputdata);
   
   /* save the data to database */
 
