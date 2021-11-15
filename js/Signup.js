@@ -15,13 +15,12 @@ $('#signup-form').submit(function (e) {
   e.preventDefault();
   //get the username(email) and password from the form
   // change the following code
-  var email = $("#signup-form input[name='username']").val();
+  var email = 'hhh'; // $("#signup-form input[name='username']").val();
   console.log(email);
-  var password = $("#signup-form input[name='password']").val();
-  var cpassword = $("#signup-form input[name='cpassword']").val();
-
+  var password = 'hh'; //$("#signup-form input[name='password']").val();
+  //var cpassword = $("#signup-form input[name='cpassword']").val();
+  console.log(password);
   // create a user with email address and password
-  if(password == cpassword){
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -38,7 +37,4 @@ $('#signup-form').submit(function (e) {
       console.log(error.code);
       console.log(errorMessage);
     });
-  } else {
-    window.location.href = 'Signup.html'
-  }
-  });
+});
