@@ -15,9 +15,9 @@ $('#signup-form').submit(function (e) {
   e.preventDefault();
   //get the username(email) and password from the form
   // change the following code
-  var email = 'hhh'; // $("#signup-form input[name='username']").val();
+  var email = $("#signup-form input[name='username']").val();
   console.log(email);
-  var password = 'hh'; //$("#signup-form input[name='password']").val();
+  var password = $("#signup-form input[name='password']").val();
   //var cpassword = $("#signup-form input[name='cpassword']").val();
   console.log(password);
   // create a user with email address and password
@@ -38,3 +38,26 @@ $('#signup-form').submit(function (e) {
       console.log(errorMessage);
     });
 });
+
+
+//the other choice use google account
+$('#google').click(function(){
+  console.log('Click google signin option');
+
+
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    console.log("hi");
+  }).catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+})
