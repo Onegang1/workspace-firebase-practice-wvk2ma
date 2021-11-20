@@ -18,8 +18,10 @@ $('#signup-form').submit(function (e) {
   var email = $("#signup-form input[name='username']").val();
   console.log(email);
   var password = $("#signup-form input[name='password']").val();
-  //var cpassword = $("#signup-form input[name='cpassword']").val();
-  console.log(password);
+  var cpassword = $("#signup-form input[name='cpassword']").val();
+  if (cpassword != password) {
+    $('form')[0].reset();
+  }
   // create a user with email address and password
   firebase
     .auth()
@@ -39,25 +41,25 @@ $('#signup-form').submit(function (e) {
     });
 });
 
-
 //the other choice use google account
-$('#google').click(function(){
+$('#google').click(function () {
   console.log('Click google signin option');
 
-
-var provider = new firebase.auth.GoogleAuthProvider();
-firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    console.log("hi");
-  }).catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-})
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      console.log('hi');
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+});

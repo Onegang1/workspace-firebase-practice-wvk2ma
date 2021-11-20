@@ -47,7 +47,7 @@ array1.forEach(element => console.log(element));
 
 firebase
   .firestore()
-  .collection("hoteldata")
+  .collection("hotelreservation")
   .onSnapshot(querySnapshot => {
     console.log(querySnapshot.size);
     querySnapshot.forEach(doc => {
