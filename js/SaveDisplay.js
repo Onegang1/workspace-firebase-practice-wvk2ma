@@ -22,6 +22,7 @@ $(".sampleSurvey input[type='submit']").click(function (e) {
   inputdata.forEach((data) => {
     inputJson[data.name] = data.value;
   });
+  console.log(inputJson);
   firebase.firestore().collection('SurveyResults').add(inputJson);
 });
 // update the result in table
@@ -35,6 +36,7 @@ firebase
     var answer2 = 0;
     var answer3 = 0;
     var answer4 = 0;
+    var answer5 = 0;
     querySnapshot.forEach((doc) => {
       switch (doc.data().choice) {
         case 'A':
@@ -48,6 +50,9 @@ firebase
           break;
         case 'D':
           answer4++;
+          break;
+        case 'E':
+          answer5++;
           break;
       }
       console.log(doc.data());
