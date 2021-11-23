@@ -63,4 +63,6 @@ firebase
     $('#ans2').text(answer2);
     $('#ans3').text(answer3);
     $('#ans4').text(answer4);
+    $('#ans5').text(answer5);
+
   });
